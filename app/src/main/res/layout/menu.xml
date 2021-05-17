@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:stretchColumns="*"
+    android:padding="20dp"
+    tools:context=".MenuActivity">
+
+    <TableRow>
+        <Button
+            android:text="두통"
+            android:textSize="50dp"
+            android:layout_marginRight="30dp"
+            android:layout_height="100dp"
+            android:id="@+id/headache"/>
+        <Button
+            android:text="복통"
+            android:textSize="50dp"
+            android:layout_height="100dp"
+            android:id="@+id/stomachache"/>
+    </TableRow>
+    <TableRow>
+        <Button
+            android:text="찰과상"
+            android:textSize="50dp"
+            android:layout_marginRight="30dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="80dp"
+            android:id="@+id/abrasion"/>
+        <Button
+            android:text="피부"
+            android:textSize="50dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="80dp"
+            android:id="@+id/skin"/>
+    </TableRow>
+
+
+
+</TableLayout>
