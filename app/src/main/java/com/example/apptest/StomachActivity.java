@@ -28,7 +28,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class StomachActivity extends AppCompatActivity {
     private final  String TAG = getClass().getSimpleName();
-    private final String BASE_URL = "http://2840d75fed75.ngrok.io";
+    private final String BASE_URL = "http://8edbcb6006ca.ngrok.io";
     private MyAPI mMyAPI;
 
     GridView gridView;
@@ -54,7 +54,7 @@ public class StomachActivity extends AppCompatActivity {
                         String name = item.getName();
                         String explanation = item.getExplanation();
                         Float rate = item.getRate();
-                        adapter.addItem(new MedicineItem(name, explanation, rate));
+                        adapter.addItem(new MedicineItem(name, explanation, rate, R.drawable.test));
                     }
                     gridView.setAdapter(adapter);
                 } else {

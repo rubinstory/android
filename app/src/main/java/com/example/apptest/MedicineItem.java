@@ -8,14 +8,13 @@ public class MedicineItem {
     private String name;
     private String explanation;
     private float rate;
-    //private ArrayList<Integer> category;
-    //private int resId;
-
-    /*public MedicineItem(String name, String explanation,  float rate, @Nullable int resId) {
-        this.name = name; this.explanation = explanation; this.rate = rate; this.resId = resId;
-    }*/
+    private int resId;
     public MedicineItem(String name, String explanation,  float rate) {
         this.name = name; this.explanation = explanation; this.rate = rate;
+    }
+
+    public MedicineItem(String name, String explanation,  float rate, int resId) {
+        this.name = name; this.explanation = explanation; this.rate = rate; this.resId = resId;
     }
 
     public String getName() { return this.name; }
@@ -24,11 +23,11 @@ public class MedicineItem {
     //public ArrayList<Integer> getCategory() { return this.category; }
 
     public float getRate(){ return this.rate; }
-    //public int getResId(){ return this.resId; }
+    public int getResId(){ return this.resId; }
 
     public void setName(String name){ this.name = name; }
     public void setExplanation(String explanation){ this.explanation = explanation; }
     //public void setCategory(ArrayList<Integer> category){ this.category = category; }
     public void setName(float rate){ this.rate = rate; }
-    //public void setResId(int resId){ this.resId = resId; }
+    public void setResId(int resId){ this.resId = resId; }
 }

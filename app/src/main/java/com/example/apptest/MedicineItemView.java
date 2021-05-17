@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 public class MedicineItemView extends LinearLayout {
     TextView nameView;
     TextView rateView;
-    //ImageView imageView;
+    ImageView imageView;
 
     public MedicineItemView(Context context) {
         super(context);
@@ -28,11 +28,11 @@ public class MedicineItemView extends LinearLayout {
 
         nameView = (TextView) findViewById(R.id.nameView);
         rateView = (TextView) findViewById(R.id.rateView);
-        //imageView = (ImageView) findViewById(R.id.imageView);
+        imageView = (ImageView) findViewById(R.id.imageView);
     }
 
     public void setName(String name) { nameView.setText(name); }
     public void setRate(float rate) { rateView.setText(Float.toString(rate)); }
-    //public void setImage(int resId) { imageView.setImageResource(resId); }
+    public void setImage(int resId) { imageView.setImageResource(resId); }
 
 }
