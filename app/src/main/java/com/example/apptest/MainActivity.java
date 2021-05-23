@@ -3,10 +3,12 @@ package com.example.apptest;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.List;
@@ -23,21 +25,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // server의 url을 적어준다
     private final String BASE_URL = "http://95654b229aa6.ngrok.io";
     private MyAPI mMyAPI;
-
-    private TextView mListTv;
-
-    private Button mGetButton;
-    private Button mPostButton;
-    private Button mPatchButton;
-    private Button mDeleteButton;
-
+    private ImageButton mGetButton;
+    private ImageButton mPostButton;
+    private ImageButton mPatchButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        mListTv = findViewById(R.id.result1);
 
         mGetButton = findViewById(R.id.button1);
         mGetButton.setOnClickListener(this);
@@ -45,22 +40,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mPostButton.setOnClickListener(this);
         mPatchButton = findViewById(R.id.button3);
         mPatchButton.setOnClickListener(this);
-        mDeleteButton = findViewById(R.id.button4);
-        mDeleteButton.setOnClickListener(this);
-
         initMyAPI(BASE_URL);
 
-        Button imageButton = (Button) findViewById(R.id.button2);
-        imageButton.setOnClickListener(new View.OnClickListener() {
+        mPostButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
             }
         });
-
-        Button menuButton = (Button) findViewById(R.id.button1);
-        menuButton.setOnClickListener(new View.OnClickListener() {
+        mGetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
@@ -147,27 +136,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if(response.isSuccessful()){
                         Log.d(TAG,"patch 성공");
                     }else{
-                        Log.d(TAG,"Status Code : " + response.code());
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<PostItem> call, Throwable t) {
-                    Log.d(TAG,"Fail msg : " + t.getMessage());
-                }
-            });
-
-
-        }else if( v == mDeleteButton){
-            Log.d(TAG,"DELETE");
-            // pk 값은 임의로 변경가능
-            Call<PostItem> deleteCall = mMyAPI.delete_posts(1);
-            deleteCall.enqueue(new Callback<PostItem>() {
-                @Override
-                public void onResponse(Call<PostItem> call, Response<PostItem> response) {
-                    if(response.isSuccessful()){
-                        Log.d(TAG,"삭제 완료");
-                    }else {
                         Log.d(TAG,"Status Code : " + response.code());
                     }
                 }
