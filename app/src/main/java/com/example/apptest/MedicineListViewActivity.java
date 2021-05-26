@@ -50,6 +50,7 @@ public class MedicineListViewActivity extends AppCompatActivity {
                         String name = item.getName();
                         String explanation = item.getExplanation();
                         Float rate = item.getRate();
+                        List<CommentItem> comments = item.getComments();
                         adapter.addItem(new MedicineItem(id, name, explanation, rate, R.drawable.test));
                     }
                     gridView.setAdapter(adapter);

@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:text="설명"
         android:textColor="@android:color/holo_blue_dark"
-        android:textSize="30sp" />
+        android:textSize="10sp" />
 
     <Button
         android:id="@+id/review"
