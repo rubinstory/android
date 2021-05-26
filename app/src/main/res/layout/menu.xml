@@ -1,46 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="8dp"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    android:stretchColumns="*"
-    android:padding="20dp"
+    android:orientation="vertical"
     tools:context=".MenuActivity">
 
-    <TableRow>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="증상으로 약 추천"
+                android:textSize="30sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:orientation="vertical">
+
         <Button
+            android:id="@+id/headache"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="두통"
-            android:textSize="50dp"
-            android:layout_marginRight="30dp"
-            android:layout_height="100dp"
-            android:id="@+id/headache"/>
+            android:textSize="50dp" />
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/headache"
+            android:layout_gravity="right"
+            android:layout_marginTop="-100dp"/>
+
         <Button
+            android:id="@+id/stomachache"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="복통"
-            android:textSize="50dp"
-            android:layout_height="100dp"
-            android:id="@+id/stomachache"/>
-    </TableRow>
-    <TableRow>
+            android:textSize="50dp" />
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/stomachache"
+            android:layout_gravity="right"
+            android:layout_marginTop="-100dp"/>
+
         <Button
-            android:text="찰과상"
-            android:textSize="50dp"
-            android:layout_marginRight="30dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="80dp"
-            android:id="@+id/abrasion"/>
+            android:id="@+id/abrasion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="상처"
+            android:textSize="50dp" />
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/abraison"
+            android:layout_gravity="right"
+            android:layout_marginTop="-100dp"/>
+
         <Button
+            android:id="@+id/skin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="피부"
-            android:textSize="50dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="80dp"
-            android:id="@+id/skin"/>
-    </TableRow>
+            android:textSize="50dp" />
 
-
-
-</TableLayout>
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/skin"
+            android:layout_gravity="right"
+            android:layout_marginTop="-100dp"/>
+    </LinearLayout>
+</LinearLayout>
