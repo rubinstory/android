@@ -4,23 +4,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <TextView
+        android:id="@+id/nameView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이름"
+        android:textSize="30sp"
+        android:textColor="@android:color/holo_blue_dark"/>
 
     <ImageView
-        android:id="@+id/tairenolImage"
+        android:id="@+id/imageView"
+
         android:layout_width="match_parent"
         android:layout_height="264dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="-3dp"
+        android:layout_marginTop="41dp"
         android:adjustViewBounds="true"
         android:maxHeight="100dp"
         android:minHeight="100dp"
         android:src="@drawable/test" />
 
+    <TextView
+        android:id="@+id/explanationView"
+        android:layout_below="@id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="설명"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="30sp" />
+
     <Button
         android:id="@+id/review"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tairenolImage"
+        android:layout_below="@+id/imageView"
         android:layout_marginTop="77dp"
         android:text="리뷰작성"
         android:textSize="20dp" />
@@ -33,6 +50,6 @@
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tairenolReviewList"/>
+            android:id="@+id/reviewList"/>
     </ScrollView>
 </RelativeLayout>

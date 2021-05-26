@@ -18,7 +18,7 @@ public class MedicineActivity extends AppCompatActivity {
         String text = intent.getExtras().getString("medicine"); // 약의 이름을 받아온다
         if(text.equals("타이레놀"))
         {
-            Intent i = new Intent(MedicineActivity.this, TairenolActivity.class);
+            Intent i = new Intent(MedicineActivity.this, MedicineItemViewActivity.class);
             startActivity(i);
         }
         }

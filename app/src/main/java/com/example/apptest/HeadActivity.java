@@ -33,7 +33,7 @@ public class HeadActivity extends AppCompatActivity {
                 String strText = (String) parent.getItemAtPosition(position);
                 if(strText.equals("타이레놀"))
                 {
-                    Intent intent = new Intent(HeadActivity.this, TairenolActivity.class);
+                    Intent intent = new Intent(HeadActivity.this, MedicineListViewActivity.class);
                     startActivity(intent);
                 }
 

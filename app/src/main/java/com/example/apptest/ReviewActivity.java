@@ -14,7 +14,7 @@ public class ReviewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.review);
+        setContentView(R.layout.write_review);
 
         RatingBar ratingBar = (RatingBar)findViewById(R.id.ratingBar);
         EditText text = (EditText)findViewById(R.id.contents);

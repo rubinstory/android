@@ -31,6 +31,9 @@ public interface MyAPI{
     @GET("/medicines/")
     Call<List<MedicineItem>> get_medicines();
 
+    @GET("/medicines/{id}")
+    Call<MedicineItem> get_medicines_by_id(@Path("id") int id);
+
     @GET("/medicines/")
     Call<List<MedicineItem>> get_medicines_by_category(@Query("category") String category);
 

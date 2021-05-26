@@ -23,6 +23,7 @@
     </activity>
     <activity android:name=".LoginActivity"/>
     <activity android:name=".MenuActivity"/>
+    <activity android:name=".MedicineListViewActivity"/>
     <activity android:name=".MedicineItemViewActivity"/>
     </application>
 
