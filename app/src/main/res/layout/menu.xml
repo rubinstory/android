@@ -12,19 +12,25 @@
     android:padding="20dp"
     tools:context=".MenuActivity">
 
-    <TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
         <Button
-            android:text="두통"
-            android:textSize="50dp"
+            android:id="@+id/headache"
+            android:layout_width="101dp"
+            android:layout_height="100dp"
             android:layout_marginRight="30dp"
-            android:layout_height="100dp"
-            android:id="@+id/headache"/>
+            android:text="두통"
+            android:textSize="50dp" />
+
         <Button
-            android:text="복통"
-            android:textSize="50dp"
+            android:id="@+id/stomachache"
             android:layout_height="100dp"
-            android:id="@+id/stomachache"/>
+            android:text="복통"
+            android:textSize="50dp" />
     </TableRow>
+
     <TableRow>
         <Button
             android:text="찰과상"
@@ -33,12 +39,13 @@
             android:layout_height="100dp"
             android:layout_marginTop="80dp"
             android:id="@+id/abrasion"/>
+
         <Button
-            android:text="피부"
-            android:textSize="50dp"
+            android:id="@+id/dermatitis"
             android:layout_height="100dp"
             android:layout_marginTop="80dp"
-            android:id="@+id/skin"/>
+            android:text="피부"
+            android:textSize="50dp" />
     </TableRow>
 
 

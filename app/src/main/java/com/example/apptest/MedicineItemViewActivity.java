@@ -1,16 +1,10 @@
 package com.example.apptest;
 
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.text.Layout;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.GridView;
 import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.util.Log;
 
@@ -26,11 +20,11 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class StomachActivity extends AppCompatActivity {
+public class MedicineItemViewActivity extends AppCompatActivity {
     private final  String TAG = getClass().getSimpleName();
-    private final String BASE_URL = "http://8edbcb6006ca.ngrok.io";
+    private final String BASE_URL = "http://f7d0edaa091f.ngrok.io";
     private MyAPI mMyAPI;
-
+    private String category;
     GridView gridView;
     private MedicineAdapter adapter;
 
@@ -38,12 +32,13 @@ public class StomachActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.stomach);
+        setContentView(R.layout.medicine_list);
+        category = getIntent().getStringExtra("category");
         initMyAPI(BASE_URL);
         gridView = (GridView) findViewById(R.id.gridView);
         adapter = new MedicineAdapter(this);
         ArrayList<MedicineItem> list = new ArrayList<MedicineItem>();
-        Call<List<MedicineItem>> getCall = mMyAPI.get_medicines();
+        Call<List<MedicineItem>> getCall = mMyAPI.get_medicines_by_category(category);
 
         getCall.enqueue(new Callback<List<MedicineItem>>() {
             @Override

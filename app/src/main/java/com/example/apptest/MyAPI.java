@@ -9,6 +9,7 @@ import retrofit2.http.GET;
 import retrofit2.http.PATCH;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface MyAPI{
 
@@ -30,6 +31,10 @@ public interface MyAPI{
     @GET("/medicines/")
     Call<List<MedicineItem>> get_medicines();
 
+    @GET("/medicines/")
+    Call<List<MedicineItem>> get_medicines_by_category(@Query("category") String category);
+
     @GET("/posts/{pk}/")
     Call<PostItem> get_post_pk(@Path("pk") int pk);
+
 }
