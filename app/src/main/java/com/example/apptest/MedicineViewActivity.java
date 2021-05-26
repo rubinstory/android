@@ -10,14 +10,12 @@ import android.widget.ListView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.lang.reflect.Array;
-
 public class TairenolActivity extends AppCompatActivity {
     static final String[] reviewList = {"완전 최악!", "이보다 좋을 순 없ㅅ다", "b", "c", "f"};
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tairenol);
+        setContentView(R.layout.medicine_view);
         Button review = (Button)findViewById(R.id.review);
         ListView listview = (ListView)findViewById(R.id.tairenolReviewList);
 
