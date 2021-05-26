@@ -3,6 +3,7 @@ package com.example.apptest;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MedicineItem {
     private int id;
@@ -10,8 +11,14 @@ public class MedicineItem {
     private String explanation;
     private float rate;
     private int resId;
+    private List<CommentItem> comments;
+
     public MedicineItem(int id, String name, String explanation,  float rate) {
         this.id = id; this.name = name; this.explanation = explanation; this.rate = rate;
+    }
+
+    public MedicineItem(int id, String name, String explanation,  float rate, List<CommentItem> comments) {
+        this.id = id; this.name = name; this.explanation = explanation; this.rate = rate; this.comments = comments;
     }
 
     public MedicineItem(int id, String name, String explanation,  float rate, int resId) {
@@ -20,7 +27,7 @@ public class MedicineItem {
     public int getId() { return this.id; }
     public String getName() { return this.name; }
     public String getExplanation() { return this.explanation; }
-
+    public List<CommentItem> getComments() { return this.comments; }
     //public ArrayList<Integer> getCategory() { return this.category; }
 
     public float getRate(){ return this.rate; }

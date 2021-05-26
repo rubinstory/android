@@ -28,10 +28,13 @@ public class MedicineItemViewActivity extends AppCompatActivity {
     private MyAPI mMyAPI;
 
     private int id;
+    private ArrayAdapter adapter;
+
     private Button review;
     private ListView listView;
     private TextView nameView;
     private TextView explanationView;
+
     static final String[] reviewList = {"완전 최악!", "이보다 좋을 순 없다", "b", "c", "f"};
 
     @Override
@@ -39,6 +42,7 @@ public class MedicineItemViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.medicine_view);
         id = getIntent().getIntExtra("id", 0);
+        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1);
 
         review = (Button)findViewById(R.id.review);
         listView = (ListView)findViewById(R.id.reviewList);
@@ -53,8 +57,13 @@ public class MedicineItemViewActivity extends AppCompatActivity {
             public void onResponse(Call<MedicineItem> call, Response<MedicineItem> response) {
                 if(response.isSuccessful()) {
                     MedicineItem item = response.body();
+                    List<CommentItem> comments = item.getComments();
                     nameView.setText(item.getName());
                     explanationView.setText(item.getExplanation());
+                    for(CommentItem c: comments) {
+                        adapter.add(c.getText());
+                    }
+                    listView.setAdapter(adapter);
                 } else {
                     Log.d(TAG, "Status Code : " + response.code());
                 }
@@ -72,9 +81,6 @@ public class MedicineItemViewActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });//리뷰 버튼 눌렀을때
-
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, reviewList);
-        listView.setAdapter(adapter);
     }
 
     private void initMyAPI(String baseUrl){
