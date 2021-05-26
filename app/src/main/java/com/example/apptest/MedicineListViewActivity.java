@@ -20,9 +20,9 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MedicineItemViewActivity extends AppCompatActivity {
+public class MedicineListViewActivity extends AppCompatActivity {
     private final  String TAG = getClass().getSimpleName();
-    private final String BASE_URL = "http://f7d0edaa091f.ngrok.io";
+    private final String BASE_URL = "http://e962cb56dc2e.ngrok.io";
     private MyAPI mMyAPI;
     private String category;
     GridView gridView;
@@ -46,10 +46,11 @@ public class MedicineItemViewActivity extends AppCompatActivity {
                 if(response.isSuccessful()) {
                     List<MedicineItem> mList = response.body();
                     for( MedicineItem item : mList){
+                        int id = item.getId();
                         String name = item.getName();
                         String explanation = item.getExplanation();
                         Float rate = item.getRate();
-                        adapter.addItem(new MedicineItem(name, explanation, rate, R.drawable.test));
+                        adapter.addItem(new MedicineItem(id, name, explanation, rate, R.drawable.test));
                     }
                     gridView.setAdapter(adapter);
                 } else {
@@ -65,7 +66,10 @@ public class MedicineItemViewActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int index, long id) {
                 MedicineItem item = (MedicineItem) adapter.getItem(index);
-                Toast.makeText(getApplicationContext(), "클릭: " + item.getName(), Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MedicineListViewActivity.this, MedicineItemViewActivity.class);
+                intent.putExtra("id", item.getId());
+                startActivity(intent);
+                //Toast.makeText(getApplicationContext(), "클릭: " + item.getName(), Toast.LENGTH_LONG).show();
             }
         });
     }
