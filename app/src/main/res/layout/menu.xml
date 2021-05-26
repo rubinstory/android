@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MenuActivity">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -44,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="두통"
-            android:textSize="50dp" />
+            android:textSize="50sp" />
 
         <ImageView
             android:layout_width="80dp"
@@ -58,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="복통"
-            android:textSize="50dp" />
+            android:textSize="50sp" />
 
         <ImageView
             android:layout_width="80dp"
@@ -72,7 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="상처"
-            android:textSize="50dp" />
+            android:textSize="50sp" />
 
         <ImageView
             android:layout_width="80dp"
@@ -82,11 +81,11 @@
             android:layout_marginTop="-100dp"/>
 
         <Button
-            android:id="@+id/skin"
+            android:id="@+id/dermatitis"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="피부"
-            android:textSize="50dp" />
+            android:textSize="50sp" />
 
         <ImageView
             android:layout_width="80dp"
