@@ -85,12 +85,27 @@
                 android:id="@+id/login_button" />
 
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textSize="18dp"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:background="@color/purple_200"
+                android:text="로그아웃"
                 android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:id="@+id/logout_button" />
+
+            <Button
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:background="@color/purple_200"
                 android:text="회원가입"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
                 android:id="@+id/register_button" />
         </LinearLayout>
     </LinearLayout>
