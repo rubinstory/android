@@ -20,8 +20,5 @@ public class ReviewActivity extends AppCompatActivity {
         EditText text = (EditText)findViewById(R.id.contents);
         Button save = (Button)findViewById(R.id.saveButton);
 
-
-
-
     }
 }

@@ -28,6 +28,9 @@ public interface MyAPI{
     @GET("/posts/")
     Call<List<PostItem>> get_posts();
 
+    @GET("/users/")
+    Call<List<UserItem>> get_users();
+
     @GET("/medicines/")
     Call<List<MedicineItem>> get_medicines();
 
