@@ -1,5 +1,6 @@
 package com.example.apptest;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -31,15 +32,28 @@ public class LoginActivity extends AppCompatActivity{
 
     private Button registerButton;
     private Button loginButton;
+    private Button logoutButton;
 
     private EditText name, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initMyAPI(BASE_URL);
         setContentView(R.layout.login);
+
         registerButton = findViewById(R.id.register_button);
         loginButton = findViewById(R.id.login_button);
+        logoutButton = findViewById(R.id.logout_button);
+        name = (EditText) findViewById(R.id.login_name);
+        password = (EditText) findViewById(R.id.login_password);
+
+        if (LoginActivity.is_login) {
+            loginButton.setVisibility(View.GONE);
+            registerButton.setVisibility(View.GONE);
+            name.setVisibility(View.GONE);
+            password.setVisibility(View.GONE);
+        }
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +103,8 @@ public class LoginActivity extends AppCompatActivity{
                                     LoginActivity.is_login = true;
                                     Toast myToast = Toast.makeText(getApplicationContext(),"로그인 성공!", Toast.LENGTH_SHORT);
                                     myToast.show();
+                                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                    startActivity(intent);
                                     return ;
                                 }
                                 else if (u.getName().equals(item.getName()) && !u.getPassword().equals(item.getPassword())) {
@@ -112,9 +128,21 @@ public class LoginActivity extends AppCompatActivity{
             }
         });
 
-        name = (EditText) findViewById(R.id.login_name);
-        password = (EditText) findViewById(R.id.login_password);
-        initMyAPI(BASE_URL);
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                if (LoginActivity.is_login) {
+                    LoginActivity.is_login = false;
+                    LoginActivity.user = null;
+                    Toast myToast = Toast.makeText(getApplicationContext(),"로그아웃하셨습니다.", Toast.LENGTH_SHORT);
+                    myToast.show();
+                    loginButton.setVisibility(View.VISIBLE);
+                    registerButton.setVisibility(View.VISIBLE);
+                    name.setVisibility(View.VISIBLE);
+                    password.setVisibility(View.VISIBLE);
+                }
+            }
+        });
     }
 
     private void initMyAPI(String baseUrl){
