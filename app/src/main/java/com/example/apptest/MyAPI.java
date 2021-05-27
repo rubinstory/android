@@ -19,6 +19,9 @@ public interface MyAPI{
     @POST("/users/")
     Call<UserItem> post_users(@Body UserItem user);
 
+    @POST("/comments/")
+    Call<CommentItem> post_comments(@Body CommentItem comment);
+
     @PATCH("/posts/{pk}/")
     Call<PostItem> patch_posts(@Path("pk") int pk, @Body PostItem post);
 

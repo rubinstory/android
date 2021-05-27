@@ -28,7 +28,6 @@ public class MedicineListViewActivity extends AppCompatActivity {
     GridView gridView;
     private MedicineAdapter adapter;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

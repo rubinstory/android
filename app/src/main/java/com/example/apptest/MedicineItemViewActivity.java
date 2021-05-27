@@ -37,8 +37,6 @@ public class MedicineItemViewActivity extends AppCompatActivity {
 
     static MedicineItem medicine;
 
-    static final String[] reviewList = {"완전 최악!", "이보다 좋을 순 없다", "b", "c", "f"};
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
