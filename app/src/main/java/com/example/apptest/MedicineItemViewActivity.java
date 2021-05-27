@@ -24,7 +24,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MedicineItemViewActivity extends AppCompatActivity {
     private final  String TAG = getClass().getSimpleName();
-    private final String BASE_URL = "http://e962cb56dc2e.ngrok.io";
+    private final String BASE_URL = "http://192.168.35.223:8000";
     private MyAPI mMyAPI;
 
     private int id;
