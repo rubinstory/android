@@ -5,14 +5,16 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
 public class MedicineItemView extends LinearLayout {
     TextView nameView;
-    TextView rateView;
+    //TextView rateView;
     ImageView imageView;
+    RatingBar ratingBar;
 
     public MedicineItemView(Context context) {
         super(context);
@@ -27,12 +29,14 @@ public class MedicineItemView extends LinearLayout {
         inflater.inflate(R.layout.medicine_item, this, true);
 
         nameView = (TextView) findViewById(R.id.nameView);
-        rateView = (TextView) findViewById(R.id.rateView);
+        //rateView = (TextView) findViewById(R.id.rateView);
         imageView = (ImageView) findViewById(R.id.imageView);
+        ratingBar = (RatingBar) findViewById(R.id.ratingBar);
     }
 
     public void setName(String name) { nameView.setText(name); }
-    public void setRate(float rate) { rateView.setText(Float.toString(rate)); }
+    //public void setRate(float rate) { rateView.setText(Float.toString(rate)); }
+    public void setRate(float rate) { ratingBar.setRating(rate); }
     public void setImage(int resId) { imageView.setImageResource(resId); }
 
 }

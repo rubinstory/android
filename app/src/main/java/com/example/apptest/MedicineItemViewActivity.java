@@ -35,6 +35,8 @@ public class MedicineItemViewActivity extends AppCompatActivity {
     private TextView nameView;
     private TextView explanationView;
 
+    static MedicineItem medicine;
+
     static final String[] reviewList = {"완전 최악!", "이보다 좋을 순 없다", "b", "c", "f"};
 
     @Override
@@ -57,6 +59,7 @@ public class MedicineItemViewActivity extends AppCompatActivity {
             public void onResponse(Call<MedicineItem> call, Response<MedicineItem> response) {
                 if(response.isSuccessful()) {
                     MedicineItem item = response.body();
+                    medicine = item;
                     List<CommentItem> comments = item.getComments();
                     nameView.setText(item.getName());
                     explanationView.setText(item.getExplanation());
