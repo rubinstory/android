@@ -24,14 +24,23 @@
             android:textSize="30sp"
             android:textColor="@android:color/holo_blue_dark"/>
 
-        <TextView
+        <!--<TextView
             android:id="@+id/rateView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="평점"
             android:textSize="24sp"
-            android:textColor="@android:color/holo_orange_dark"/>
+            android:textColor="@android:color/holo_orange_dark"/>-->
+        <RatingBar
+            android:isIndicator="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ratingBar"
+            android:numStars="5"
+            android:rating="4.5"
+            android:stepSize="0.5"
+            style="?android:attr/ratingBarStyle"/>
 
     </LinearLayout>
 

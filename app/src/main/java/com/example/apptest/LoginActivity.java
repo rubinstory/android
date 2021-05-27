@@ -35,6 +35,7 @@ public class LoginActivity extends AppCompatActivity{
     private Button logoutButton;
 
     private EditText name, password;
+    List<UserItem> userList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,19 +56,32 @@ public class LoginActivity extends AppCompatActivity{
             password.setVisibility(View.GONE);
         }
 
+        else getUserList();
+
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
                 UserItem item = new UserItem();
-
                 item.setName(name.getText().toString());
                 item.setPassword(password.getText().toString());
+                for (UserItem u: userList) {
+                    if (u.getName().equals(item.getName())) {
+                        Toast myToast = Toast.makeText(getApplicationContext(),"중복된 아이디가 존재합니다.", Toast.LENGTH_SHORT);
+                        myToast.show();
+                        return ;
+                    }
+                }
+
                 Call<UserItem> userCall = mMyAPI.post_users(item);
                 userCall.enqueue(new Callback<UserItem>() {
                     @Override
                     public void onResponse(Call<UserItem> call, Response<UserItem> response) {
                         if (response.isSuccessful()) {
-                            Log.d(TAG, "등록 완료");
+                            Toast myToast = Toast.makeText(getApplicationContext(),"회원가입 성공!", Toast.LENGTH_SHORT);
+                            myToast.show();
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent);
+                            return ;
                         } else {
                             Log.d(TAG, "Status Code : " + response.code());
                             Log.d(TAG, response.errorBody().toString());
@@ -96,7 +110,6 @@ public class LoginActivity extends AppCompatActivity{
                     public void onResponse(Call<List<UserItem>>  call, Response<List<UserItem>>  response) {
                         if (response.isSuccessful()) {
                             boolean check_name = false;
-                            List<UserItem> userList = response.body();
                             for (UserItem u: userList) {
                                 if (u.getName().equals(item.getName()) && u.getPassword().equals(item.getPassword())) {
                                     LoginActivity.user = item;
@@ -154,5 +167,19 @@ public class LoginActivity extends AppCompatActivity{
                 .build();
 
         mMyAPI = retrofit.create(MyAPI.class);
+    }
+
+    private void getUserList() {
+        Call<List<UserItem>> userListCall = mMyAPI.get_users();
+        userListCall.enqueue(new Callback<List<UserItem>>() {
+            @Override
+            public void onResponse(Call<List<UserItem>> call, Response<List<UserItem>> response) {
+                if (response.isSuccessful()) userList = response.body();
+            }
+            @Override
+            public void onFailure(Call<List<UserItem>> call, Throwable t) {
+                Log.d(TAG, "Fail msg : " + t.getMessage());
+            }
+        });
     }
 }
