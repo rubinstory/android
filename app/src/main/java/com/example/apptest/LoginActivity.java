@@ -112,7 +112,7 @@ public class LoginActivity extends AppCompatActivity{
                             boolean check_name = false;
                             for (UserItem u: userList) {
                                 if (u.getName().equals(item.getName()) && u.getPassword().equals(item.getPassword())) {
-                                    LoginActivity.user = item;
+                                    LoginActivity.user = u;
                                     LoginActivity.is_login = true;
                                     Toast myToast = Toast.makeText(getApplicationContext(),"로그인 성공!", Toast.LENGTH_SHORT);
                                     myToast.show();
