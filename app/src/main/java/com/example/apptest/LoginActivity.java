@@ -81,6 +81,7 @@ public class LoginActivity extends AppCompatActivity{
                             Toast myToast = Toast.makeText(getApplicationContext(),"회원가입 성공!", Toast.LENGTH_SHORT);
                             myToast.show();
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
                             return ;
                         } else {
@@ -118,6 +119,7 @@ public class LoginActivity extends AppCompatActivity{
                                     Toast myToast = Toast.makeText(getApplicationContext(),"로그인 성공!", Toast.LENGTH_SHORT);
                                     myToast.show();
                                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                     startActivity(intent);
                                     return ;
                                 }
