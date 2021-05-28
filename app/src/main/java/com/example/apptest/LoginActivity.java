@@ -40,8 +40,10 @@ public class LoginActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initMyAPI(BASE_URL);
         setContentView(R.layout.login);
+
+        initMyAPI(BASE_URL);
+        getUserList();
 
         registerButton = findViewById(R.id.register_button);
         loginButton = findViewById(R.id.login_button);
@@ -55,8 +57,7 @@ public class LoginActivity extends AppCompatActivity{
             name.setVisibility(View.GONE);
             password.setVisibility(View.GONE);
         }
-
-        else getUserList();
+        else logoutButton.setVisibility(View.GONE);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,6 +151,7 @@ public class LoginActivity extends AppCompatActivity{
                     Toast myToast = Toast.makeText(getApplicationContext(),"로그아웃하셨습니다.", Toast.LENGTH_SHORT);
                     myToast.show();
                     loginButton.setVisibility(View.VISIBLE);
+                    logoutButton.setVisibility(View.GONE);
                     registerButton.setVisibility(View.VISIBLE);
                     name.setVisibility(View.VISIBLE);
                     password.setVisibility(View.VISIBLE);
