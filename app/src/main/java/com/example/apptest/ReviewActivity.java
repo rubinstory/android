@@ -38,6 +38,11 @@ public class ReviewActivity extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!LoginActivity.is_login) {
+                    Toast myToast = Toast.makeText(getApplicationContext(),"로그인을 해야 리뷰를 작성할 수 있습니다.!", Toast.LENGTH_SHORT);
+                    myToast.show();
+                    return ;
+                }
                 CommentItem comment = new CommentItem(LoginActivity.user.getId(), MedicineItemViewActivity.medicine.getId(), text.getText().toString());
 
                 Call<CommentItem> commentCall = mMyAPI.post_comments(comment);
@@ -49,6 +54,9 @@ public class ReviewActivity extends AppCompatActivity {
                             myToast.show();
                             Intent intent = new Intent(ReviewActivity.this, MedicineItemViewActivity.class);
                             intent.putExtra("id", MedicineItemViewActivity.medicine.getId());
+                            //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
                             return ;
                         } else {
