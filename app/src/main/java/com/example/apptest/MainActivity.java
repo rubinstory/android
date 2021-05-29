@@ -25,12 +25,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // server의 url을 적어준다
     private final String BASE_URL = "http://95654b229aa6.ngrok.io";
     private MyAPI mMyAPI;
-    //private ImageButton mGetButton;
-    //private ImageButton mPostButton;
-    //private ImageButton mPatchButton;
-    private Button mGetButton;
-    private Button mPostButton;
-    private Button mPatchButton;
+    private ImageButton mGetButton;
+    private ImageButton mPostButton;
+    private ImageButton mPatchButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
