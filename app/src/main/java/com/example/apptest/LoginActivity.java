@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity{
 
     private final  String TAG = getClass().getSimpleName();
 
-    private final String BASE_URL = "http://192.168.35.223:8000";
+    private final String BASE_URL = "http://fbeb3981b1a9.ngrok.io";
     private MyAPI mMyAPI;
 
 

@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private final  String TAG = getClass().getSimpleName();
 
     // server의 url을 적어준다
-    private final String BASE_URL = "http://95654b229aa6.ngrok.io";
+    private final String BASE_URL = "http://fbeb3981b1a9.ngrok.io";
     private MyAPI mMyAPI;
     private ImageButton mGetButton;
     private ImageButton mPostButton;
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mGetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MapMainActivity.class);
                 startActivity(intent);
             }
         });
