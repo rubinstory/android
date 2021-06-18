@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageButton mGetButton;
     private ImageButton mPostButton;
     private ImageButton mPatchButton;
+    private ImageButton mMapButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mPostButton.setOnClickListener(this);
         mPatchButton = findViewById(R.id.button3);
         mPatchButton.setOnClickListener(this);
+        mMapButton = findViewById(R.id.mapButton);
+        mMapButton.setOnClickListener(this);
         initMyAPI(BASE_URL);
 
         mPostButton.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +56,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+                startActivity(intent);
+            }
+        });
+        mMapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MapMainActivity.class);
                 startActivity(intent);
             }
         });
