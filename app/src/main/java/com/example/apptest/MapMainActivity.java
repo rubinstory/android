@@ -3,7 +3,6 @@ package com.example.apptest;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -18,11 +17,8 @@ import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -68,6 +64,8 @@ public class MapMainActivity extends AppCompatActivity implements OnMapReadyCall
     EditText edit;
     String getedit; //약국 동이름으로 검색하는 edittext
 
+    SupportMapFragment mapFragment;
+
     private static final String TAG = "googlemap_example";
     private static final int GPS_ENABLE_REQUEST_CODE = 1000; //권한 설정을 한 activity에 request값으로 받아올 변수 설정
     private static final int UPDATE_INTERVAL_MS = 1000;  // 1초
@@ -104,7 +102,7 @@ public class MapMainActivity extends AppCompatActivity implements OnMapReadyCall
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
                 WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        setContentView(R.layout.map_activity_main);
+        setContentView(R.layout.map);
 
         previous_marker = new ArrayList<Marker>();
 
@@ -124,17 +122,15 @@ public class MapMainActivity extends AppCompatActivity implements OnMapReadyCall
                 .setInterval(UPDATE_INTERVAL_MS)
                 .setFastestInterval(FASTEST_UPDATE_INTERVAL_MS);
 
-
         LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder();
-
         builder.addLocationRequest(locationRequest);
-
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
+        //mapFragment = new SupportMapFragment();
+        //getSupportFragmentManager().beginTransaction().replace(R.id.map, mapFragment).commit();
     }
+
 
 
     //맵이 실행됐을때 처리 과정
@@ -256,28 +252,19 @@ public class MapMainActivity extends AppCompatActivity implements OnMapReadyCall
     @Override
     protected void onStart() {
         super.onStart();
-
         Log.d(TAG, "onStart");
-
         if (checkPermission()) {
-
             Log.d(TAG, "onStart : call mFusedLocationClient.requestLocationUpdates");
             mFusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, null);
-
             if (mMap!=null)
                 mMap.setMyLocationEnabled(true);
-
         }
-
     }
 
     @Override
     protected void onStop() {
-
         super.onStop();
-
         if (mFusedLocationClient != null) {
-
             Log.d(TAG, "onStop : call stopLocationUpdates");
             mFusedLocationClient.removeLocationUpdates(locationCallback);
         }
@@ -285,12 +272,9 @@ public class MapMainActivity extends AppCompatActivity implements OnMapReadyCall
 
     // 지오코더로 gps를 주소로 변환함. 위도와 경도를 받아온 후에 onMap에서 실행해주면 현재 위치로 이동함
     public String getCurrentAddress(LatLng latlng) {
-
         //지오코더... GPS를 주소로 변환
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
-
         List<Address> addresses;
-
         try {
             addresses = geocoder.getFromLocation(
                     latlng.latitude,
@@ -303,7 +287,6 @@ public class MapMainActivity extends AppCompatActivity implements OnMapReadyCall
         } catch (IllegalArgumentException illegalArgumentException) {
             Toast.makeText(this, "잘못된 GPS 좌표", Toast.LENGTH_LONG).show();
             return "잘못된 GPS 좌표";
-
         }
 
         if (addresses == null || addresses.size() == 0) {
