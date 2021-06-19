@@ -38,5 +38,5 @@ public class MedicineItem {
     public void setExplanation(String explanation){ this.explanation = explanation; }
     //public void setCategory(ArrayList<Integer> category){ this.category = category; }
     public void setName(float rate){ this.rate = rate; }
-    public void setImageUrl(String image){ this.image = image; }
+    public void setImage(String image){ this.image = image; }
 }
