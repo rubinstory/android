@@ -29,7 +29,7 @@ class MedicineAdapter extends BaseAdapter {
         MedicineItem item = itemList.get(index);
         medicineView.setName(item.getName());
         medicineView.setRate(item.getRate());
-        medicineView.setImage(item.getResId());
+        medicineView.setImage(item.getImage());
         return medicineView;
     }
 }
