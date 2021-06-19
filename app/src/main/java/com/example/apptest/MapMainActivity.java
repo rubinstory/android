@@ -90,12 +90,13 @@ public class MapMainActivity extends AppCompatActivity implements OnMapReadyCall
     private View mLayout;  // Snackbar 사용하기 위해서 View가 필요
     List<Marker> previous_marker = null; //google place에서 얻어온 약국 마커 표시
 
+    /*
     @Override
     public void onBackPressed() {
         // 버튼을 누르면 메인화면으로 이동
         myStartActivity();
         super.onBackPressed();
-    }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -547,7 +548,7 @@ public class MapMainActivity extends AppCompatActivity implements OnMapReadyCall
     }
 
     private void myStartActivity(){
-        Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();
