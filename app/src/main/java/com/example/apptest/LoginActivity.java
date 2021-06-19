@@ -65,6 +65,16 @@ public class LoginActivity extends AppCompatActivity{
                 UserItem item = new UserItem();
                 item.setName(name.getText().toString());
                 item.setPassword(password.getText().toString());
+                if (item.getName().equals("") || item.getName() == null) {
+                    Toast myToast = Toast.makeText(getApplicationContext(),"아이디를 입력하세요.", Toast.LENGTH_SHORT);
+                    myToast.show();
+                    return ;
+                }
+                if (item.getPassword().equals("") || item.getPassword() == null) {
+                    Toast myToast = Toast.makeText(getApplicationContext(),"비밀번호를 입력하세요.", Toast.LENGTH_SHORT);
+                    myToast.show();
+                    return ;
+                }
                 for (UserItem u: userList) {
                     if (u.getName().equals(item.getName())) {
                         Toast myToast = Toast.makeText(getApplicationContext(),"중복된 아이디가 존재합니다.", Toast.LENGTH_SHORT);
@@ -105,6 +115,17 @@ public class LoginActivity extends AppCompatActivity{
                 UserItem item = new UserItem();
                 item.setName(name.getText().toString());
                 item.setPassword(password.getText().toString());
+
+                if (item.getName().equals("") || item.getName() == null) {
+                    Toast myToast = Toast.makeText(getApplicationContext(),"아이디를 입력하세요.", Toast.LENGTH_SHORT);
+                    myToast.show();
+                    return ;
+                }
+                if (item.getPassword().equals("") || item.getPassword() == null) {
+                    Toast myToast = Toast.makeText(getApplicationContext(),"비밀번호를 입력하세요.", Toast.LENGTH_SHORT);
+                    myToast.show();
+                    return ;
+                }
 
                 Call<List<UserItem>> userCall = mMyAPI.get_users();
                 userCall.enqueue(new Callback<List<UserItem>> () {
