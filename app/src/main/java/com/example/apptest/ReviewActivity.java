@@ -43,7 +43,10 @@ public class ReviewActivity extends AppCompatActivity {
                     myToast.show();
                     return ;
                 }
-                CommentItem comment = new CommentItem(LoginActivity.user.getId(), MedicineItemViewActivity.medicine.getId(), text.getText().toString());
+                CommentItem comment = new CommentItem(LoginActivity.user.getId(),
+                                                      MedicineItemViewActivity.medicine.getId(),
+                                                      text.getText().toString(),
+                                                      ratingBar.getRating());
 
                 Call<CommentItem> commentCall = mMyAPI.post_comments(comment);
                 commentCall.enqueue(new Callback<CommentItem>() {
