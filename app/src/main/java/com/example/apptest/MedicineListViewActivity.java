@@ -31,6 +31,11 @@ public class MedicineListViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         setContentView(R.layout.medicine_list);
         category = getIntent().getStringExtra("category");
         initMyAPI(BASE_URL);
@@ -50,7 +55,8 @@ public class MedicineListViewActivity extends AppCompatActivity {
                         String explanation = item.getExplanation();
                         Float rate = item.getRate();
                         List<CommentItem> comments = item.getComments();
-                        adapter.addItem(new MedicineItem(id, name, explanation, rate, R.drawable.test));
+                        String image = item.getImage();
+                        adapter.addItem(new MedicineItem(id, name, explanation, rate, image));
                     }
                     gridView.setAdapter(adapter);
                 } else {

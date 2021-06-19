@@ -7,11 +7,14 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +37,7 @@ public class MedicineItemViewActivity extends AppCompatActivity {
     private ListView listView;
     private TextView nameView;
     private TextView explanationView;
+    private ImageView imageView;
 
     static MedicineItem medicine;
 
@@ -48,6 +52,7 @@ public class MedicineItemViewActivity extends AppCompatActivity {
         listView = (ListView)findViewById(R.id.reviewList);
         nameView = (TextView)findViewById(R.id.nameView);
         explanationView = (TextView)findViewById(R.id.explanationView);
+        imageView = (ImageView)findViewById(R.id.imageView);
 
         initMyAPI(BASE_URL);
         Call<MedicineItem> getCall = mMyAPI.get_medicines_by_id(id);
@@ -61,6 +66,7 @@ public class MedicineItemViewActivity extends AppCompatActivity {
                     List<CommentItem> comments = item.getComments();
                     nameView.setText(item.getName());
                     explanationView.setText(item.getExplanation());
+                    Glide.with(imageView).load(medicine.getImage()).into(imageView);
                     for(CommentItem c: comments) {
                         adapter.add(c.getText());
                     }

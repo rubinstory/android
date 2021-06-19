@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
+
 public class MedicineItemView extends LinearLayout {
     TextView nameView;
     //TextView rateView;
@@ -37,6 +39,9 @@ public class MedicineItemView extends LinearLayout {
     public void setName(String name) { nameView.setText(name); }
     //public void setRate(float rate) { rateView.setText(Float.toString(rate)); }
     public void setRate(float rate) { ratingBar.setRating(rate); }
-    public void setImage(int resId) { imageView.setImageResource(resId); }
+    //public void setImage(int resId) { imageView.setImageResource(resId); }
+    public void setImage(String imageUrl) {
+        Glide.with(this).load(imageUrl).into(imageView);
+    }
 
 }
