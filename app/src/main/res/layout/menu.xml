@@ -1,180 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/background"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MenuActivity">
-
-    <Button
-        android:id="@+id/headache"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:backgroundTint="@color/colorPrimaryDark"
-        android:text="두통"
-        android:textColor="@android:color/white"
-        app:backgroundTint="@color/colorPrimaryDark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleView" />
-    <Button
-        android:id="@+id/stomachache"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:backgroundTint="@color/colorPrimaryDark"
-        android:text="복통"
-        android:textColor="@android:color/white"
-        app:backgroundTint="@color/colorPrimaryDark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headache" />
-    <Button
-        android:id="@+id/abrasion"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:backgroundTint="@color/colorPrimaryDark"
-        android:text="찰과상"
-        android:textColor="@android:color/white"
-        app:backgroundTint="@color/colorPrimaryDark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stomachache" />
-
-    <Button
-        android:id="@+id/dermatitis"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:backgroundTint="@color/colorPrimaryDark"
-        android:text="피부염"
-        android:textColor="@android:color/white"
-        app:backgroundTint="@color/colorPrimaryDark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/abrasion" />
-
-    <TextView
-        android:id="@+id/titleView"
-        android:layout_width="200dp"
-        android:layout_height="128dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="sans-serif"
-        android:text="증상 별 항목 선택"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
-<!--<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MenuActivity">
+    android:paddingLeft="10.0dip"
+    android:paddingTop="10.0dip"
+    android:paddingRight="10.0dip"
+    android:paddingBottom="10.0dip"
+    android:background="@drawable/background">
+
+    <TextView
+        android:id="@+id/titleView"
+        android:layout_width="200dp"
+        android:layout_height="128dp"
+        android:layout_gravity="center"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="증상 별 항목 선택"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
-        android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_width="match_parent"
         android:layout_weight="1"
-        android:background="@android:color/white"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:paddingLeft="10.0dip"
+        android:paddingTop="10.0dip"
+        android:paddingRight="10.0dip"
+        android:paddingBottom="10.0dip">
+        <Button
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/headxml"
+            android:paddingTop="6dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center"
+            android:text="두통"
+            android:textSize="20dp"
+            android:id="@+id/headache"
+            android:background="@drawable/buttombackground"/>
+        <Button
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/stomachxml"
+            android:paddingTop="6dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center"
+            android:text="복통"
+            android:textSize="20dp"
+            android:id="@+id/stomachache"
+            android:background="@drawable/buttombackground"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:paddingLeft="10.0dip"
+        android:paddingTop="10.0dip"
+        android:paddingRight="10.0dip"
+        android:paddingBottom="10.0dip">
+        <Button
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/abrasionxml"
+            android:paddingTop="6dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center"
+            android:text="찰과상"
+            android:textSize="20dp"
+            android:id="@+id/abrasion"
+            android:background="@drawable/buttombackground"/>
+
+        <Button
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/skinxml"
+            android:paddingTop="6dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center"
+            android:text="피부"
+            android:textSize="20dp"
+            android:id="@+id/dermatitis"
+            android:background="@drawable/buttombackground"/>
+    </LinearLayout>
+
+
+</LinearLayout>
+    <!--<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MenuActivity">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="증상으로 약 추천"
+                    android:textSize="30sp" />
+            </LinearLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="0dp"
+            <Button
+                android:id="@+id/headache"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="증상으로 약 추천"
-                android:textSize="30sp" />
+                android:text="두통"
+                android:textSize="50sp" />
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/headache"
+                android:layout_gravity="right"
+                android:layout_marginTop="-100dp"/>
+
+            <Button
+                android:id="@+id/stomachache"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="복통"
+                android:textSize="50sp" />
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/stomachache"
+                android:layout_gravity="right"
+                android:layout_marginTop="-100dp"/>
+
+            <Button
+                android:id="@+id/abrasion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="상처"
+                android:textSize="50sp" />
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/abraison"
+                android:layout_gravity="right"
+                android:layout_marginTop="-100dp"/>
+
+            <Button
+                android:id="@+id/dermatitis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="피부"
+                android:textSize="50sp" />
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/skin"
+                android:layout_gravity="right"
+                android:layout_marginTop="-100dp"/>
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="8"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/headache"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="두통"
-            android:textSize="50sp" />
-
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/headache"
-            android:layout_gravity="right"
-            android:layout_marginTop="-100dp"/>
-
-        <Button
-            android:id="@+id/stomachache"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="복통"
-            android:textSize="50sp" />
-
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/stomachache"
-            android:layout_gravity="right"
-            android:layout_marginTop="-100dp"/>
-
-        <Button
-            android:id="@+id/abrasion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="상처"
-            android:textSize="50sp" />
-
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/abraison"
-            android:layout_gravity="right"
-            android:layout_marginTop="-100dp"/>
-
-        <Button
-            android:id="@+id/dermatitis"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="피부"
-            android:textSize="50sp" />
-
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/skin"
-            android:layout_gravity="right"
-            android:layout_marginTop="-100dp"/>
-    </LinearLayout>
-</LinearLayout>-->
+    </LinearLayout>-->
