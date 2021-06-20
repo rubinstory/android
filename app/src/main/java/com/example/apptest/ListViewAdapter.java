@@ -32,7 +32,7 @@ public class ListViewAdapter extends BaseAdapter {
         // "listview_item" Layout을 inflate하여 convertView 참조 획득.
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.form, parent, false);
+            convertView = inflater.inflate(R.layout.form_modified, parent, false);
         }
         ImageView image = (ImageView)convertView.findViewById(R.id.userimage);
         RatingBar stars = (RatingBar)convertView.findViewById(R.id.star);
