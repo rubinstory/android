@@ -34,6 +34,9 @@ public interface MyAPI{
     @GET("/users/")
     Call<List<UserItem>> get_users();
 
+    @GET("/users/{id}")
+    Call<UserItem> get_user_by_id(@Path("id") int id);
+
     @GET("/medicines/")
     Call<List<MedicineItem>> get_medicines();
 

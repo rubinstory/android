@@ -16,10 +16,10 @@ public class CommentItem {
     public CommentItem(int user, int medicine, String text, float rate) {
         this.user = user; this.medicine = medicine; this.text = text; this.rate = rate;}
 
-    //public void setId(int id) { this.id = id; }
+    public void setUserId(int user) { this.user = user; }
     public void setText(String text) { this.text = text; }
 
-    //public int getId() { return this.id; }
+    public int getUserId() { return this.user; }
     public String getText() { return this.text; }
     public float getRate() { return this.rate; }
 }

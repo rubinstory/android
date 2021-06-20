@@ -61,15 +61,6 @@ public class ListViewAdapter extends BaseAdapter {
         return listViewItemList.get(position);
     }
 
-    public void addItem(Drawable icon, float stars, String name, String text)
-    {
-        ListViewItem item = new ListViewItem();
-        item.setIcon(icon);
-        item.setNumStar(stars);
-        item.setName(name);
-        item.setText(text);
 
-
-        listViewItemList.add(item);
-    }
+    public void addItem(ListViewItem item) { listViewItemList.add(item); }
 }

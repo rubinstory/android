@@ -1,6 +1,10 @@
 package com.example.apptest;
 
 import android.graphics.drawable.Drawable;
+import android.util.Log;
+
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ListViewItem {
     private Drawable icon;
@@ -8,6 +12,10 @@ public class ListViewItem {
     private float numStar;
     private String name;
 
+    public ListViewItem() {}
+    public ListViewItem(String text, float numStar, String name) {
+        this.text = text; this.numStar = numStar; this.name = name;
+    }
     public void setIcon(Drawable icon)
     {
         this.icon = icon;
@@ -21,9 +29,7 @@ public class ListViewItem {
         this.text = text;
     }
     public void setName(String name) { this.name = name; }
-    public Drawable getIcon() {
-        return this.icon ;
-    }
+    public Drawable getIcon() { return this.icon ; }
     public float getNumStar() {
         return this.numStar ;
     }
@@ -31,5 +37,4 @@ public class ListViewItem {
         return this.text ;
     }
     public String getName() { return this.name ; }
-
 }

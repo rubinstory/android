@@ -29,7 +29,6 @@ public class LoginActivity extends AppCompatActivity{
     private final String BASE_URL = "http://192.168.35.223:8000";
     private MyAPI mMyAPI;
 
-
     private Button registerButton;
     private Button loginButton;
     private Button logoutButton;
