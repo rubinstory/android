@@ -1,6 +1,7 @@
 package com.example.apptest;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.Rating;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,12 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.taufiqrahman.reviewratings.BarLabels;
+import com.taufiqrahman.reviewratings.RatingReviews;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,6 +39,7 @@ public class ReviewActivity extends AppCompatActivity {
         initMyAPI(BASE_URL);
 
         RatingBar ratingBar = (RatingBar)findViewById(R.id.ratingBar);
+
         EditText text = (EditText)findViewById(R.id.contents);
         Button save = (Button)findViewById(R.id.saveButton);
 
