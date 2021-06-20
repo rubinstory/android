@@ -49,6 +49,8 @@
             android:layout_gravity="center"
             android:text="두통"
             android:textSize="20dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             android:id="@+id/headache"
             android:background="@drawable/buttombackground"/>
         <Button
@@ -64,6 +66,8 @@
             android:layout_gravity="center"
             android:text="복통"
             android:textSize="20dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             android:id="@+id/stomachache"
             android:background="@drawable/buttombackground"/>
     </LinearLayout>
@@ -90,6 +94,8 @@
             android:layout_gravity="center"
             android:text="찰과상"
             android:textSize="20dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             android:id="@+id/abrasion"
             android:background="@drawable/buttombackground"/>
 
@@ -106,6 +112,8 @@
             android:layout_gravity="center"
             android:text="피부"
             android:textSize="20dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             android:id="@+id/dermatitis"
             android:background="@drawable/buttombackground"/>
     </LinearLayout>
