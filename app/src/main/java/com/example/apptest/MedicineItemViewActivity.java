@@ -1,7 +1,9 @@
 package com.example.apptest;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -10,6 +12,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,7 +34,7 @@ public class MedicineItemViewActivity extends AppCompatActivity {
     private MyAPI mMyAPI;
 
     private int id;
-    private ArrayAdapter adapter;
+    private ListViewAdapter listViewAdapter;
 
     private Button review;
     private ListView listView;
@@ -41,22 +44,21 @@ public class MedicineItemViewActivity extends AppCompatActivity {
 
     static MedicineItem medicine;
 
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.medicine_view);
         id = getIntent().getIntExtra("id", 0);
-        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1);
-
+        listViewAdapter = new ListViewAdapter();
         review = (Button)findViewById(R.id.review);
         listView = (ListView)findViewById(R.id.reviewList);
         nameView = (TextView)findViewById(R.id.nameView);
         explanationView = (TextView)findViewById(R.id.explanationView);
         imageView = (ImageView)findViewById(R.id.imageView);
-
         initMyAPI(BASE_URL);
-        Call<MedicineItem> getCall = mMyAPI.get_medicines_by_id(id);
 
+        Call<MedicineItem> getCall = mMyAPI.get_medicines_by_id(id);
         getCall.enqueue(new Callback<MedicineItem>() {
             @Override
             public void onResponse(Call<MedicineItem> call, Response<MedicineItem> response) {
@@ -68,9 +70,40 @@ public class MedicineItemViewActivity extends AppCompatActivity {
                     explanationView.setText(item.getExplanation());
                     Glide.with(imageView).load(medicine.getImage()).into(imageView);
                     for(CommentItem c: comments) {
-                        adapter.add(c.getText());
+                        ListViewItem listViewItem = new ListViewItem();
+                        listViewItem.setText(c.getText());
+                        listViewItem.setNumStar(c.getRate());
+
+                        Call<UserItem> getUserCall = mMyAPI.get_user_by_id(c.getUserId());
+                        getUserCall.enqueue(new Callback<UserItem>() {
+                            @Override
+                            public void onResponse(Call<UserItem> call, Response<UserItem> response) {
+                                if(response.isSuccessful()) {
+                                    UserItem userItem = response.body();
+                                    listViewItem.setName(userItem.getName());
+                                }
+                            }
+                            @Override
+                            public void onFailure(Call<UserItem> call, Throwable t) {
+                                Log.d(TAG,"Fail msg : " + t.getMessage());
+                            }
+                        });
+
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                listViewAdapter.addItem(listViewItem);
+                            }
+                        }, 100);
                     }
-                    listView.setAdapter(adapter);
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            listView.setAdapter(listViewAdapter);
+                        }
+                    }, 200);
                 } else {
                     Log.d(TAG, "Status Code : " + response.code());
                 }
