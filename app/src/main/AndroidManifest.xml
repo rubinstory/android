@@ -29,6 +29,6 @@
         <activity android:name=".MedicineListViewActivity"/>
         <activity android:name=".MedicineItemViewActivity"/>
         <activity android:name=".ReviewActivity"/>
-        <activity android:name=".MapMainActivity"/>
+        <activity android:name=".PharmacyActivity"/>
     </application>
 </manifest>

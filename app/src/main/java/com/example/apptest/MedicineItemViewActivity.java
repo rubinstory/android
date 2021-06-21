@@ -6,20 +6,16 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -37,6 +33,7 @@ public class MedicineItemViewActivity extends AppCompatActivity {
     private ListViewAdapter listViewAdapter;
 
     private Button review;
+    private Button pharmacy;
     private ListView listView;
     private TextView nameView;
     private TextView explanationView;
@@ -52,6 +49,7 @@ public class MedicineItemViewActivity extends AppCompatActivity {
         id = getIntent().getIntExtra("id", 0);
         listViewAdapter = new ListViewAdapter();
         review = (Button)findViewById(R.id.review);
+        pharmacy = (Button)findViewById(R.id.pharmacy);
         listView = (ListView)findViewById(R.id.reviewList);
         nameView = (TextView)findViewById(R.id.nameView);
         explanationView = (TextView)findViewById(R.id.explanationView);
@@ -121,6 +119,14 @@ public class MedicineItemViewActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });//리뷰 버튼 눌렀을때
+
+        pharmacy.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MedicineItemViewActivity.this, PharmacyActivity.class);
+                startActivity(intent);
+            }
+        });//약국 버튼 눌렀을때
     }
 
     private void initMyAPI(String baseUrl){

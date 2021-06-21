@@ -54,7 +54,7 @@ import noman.googleplaces.PlaceType;
 import noman.googleplaces.PlacesException;
 import noman.googleplaces.PlacesListener;
 
-public class MapMainActivity extends AppCompatActivity implements OnMapReadyCallback, ActivityCompat.OnRequestPermissionsResultCallback, PlacesListener {
+public class PharmacyActivity extends AppCompatActivity implements OnMapReadyCallback, ActivityCompat.OnRequestPermissionsResultCallback, PlacesListener {
     private GoogleMap mMap;
     private Marker currentMarker = null;
 
@@ -157,7 +157,7 @@ public class MapMainActivity extends AppCompatActivity implements OnMapReadyCall
                     public void onClick(View view) {
 
                         //사용자게에 퍼미션 요청을 함 요청 결과는 onRequestPermissionResult에서 수신
-                        ActivityCompat.requestPermissions(MapMainActivity.this, REQUIRED_PERMISSIONS,
+                        ActivityCompat.requestPermissions(PharmacyActivity.this, REQUIRED_PERMISSIONS,
                                 PERMISSIONS_REQUEST_CODE);
                     }
                 }).show();
@@ -279,8 +279,8 @@ public class MapMainActivity extends AppCompatActivity implements OnMapReadyCall
         }
 
         if (addresses == null || addresses.size() == 0) {
-            Toast.makeText(this, "주소 찾는중", Toast.LENGTH_LONG).show();
-            return "주소 찾는중";
+            Toast.makeText(this, "검색 완료", Toast.LENGTH_LONG).show();
+            return "검색 완료";
 
         } else {
             Address address = addresses.get(0);
@@ -420,7 +420,7 @@ public class MapMainActivity extends AppCompatActivity implements OnMapReadyCall
     //GPS 활성화를 위한 메소드들
     private void showDialogForLocationServiceSetting() {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(MapMainActivity.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(PharmacyActivity.this);
         builder.setTitle("위치 서비스 비활성화");
         builder.setMessage("앱을 사용하기 위해서는 위치 서비스가 필요합니다.\n"
                 + "위치 설정을 수정하실래요?");
@@ -519,7 +519,7 @@ public class MapMainActivity extends AppCompatActivity implements OnMapReadyCall
             previous_marker.clear();//지역정보 마커 클리어
 
         new NRPlaces.Builder()
-                .listener(MapMainActivity.this)
+                .listener(PharmacyActivity.this)
                 .key("AIzaSyBOGHjlT4n_N7hA8EK3OjD5mLD4hp0-6Cs") // Google API
                 .latlng(location.latitude, location.longitude)
                 .radius(2500)// 반경
