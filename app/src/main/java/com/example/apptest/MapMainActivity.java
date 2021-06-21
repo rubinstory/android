@@ -528,7 +528,7 @@ public class MapMainActivity extends AppCompatActivity implements OnMapReadyCall
                 .execute();
     }
 
-    private void myStartActivity(){
+     private void myStartActivity(){
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);

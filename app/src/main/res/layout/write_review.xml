@@ -16,9 +16,7 @@
         android:textColor="@android:color/black"
         android:textAlignment="center"
         android:textSize="24sp"
-        android:textStyle="bold"
-
-        />
+        android:textStyle="bold" />
     <EditText
         android:id="@+id/contents"
         android:layout_width="match_parent"

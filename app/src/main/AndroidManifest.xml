@@ -15,21 +15,20 @@
         android:allowBackup="false"
         tools:replace="android:allowBackup">
         <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyBOGHjlT4n_N7hA8EK3OjD5mLD4hp0-6Cs"/>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name">
 
-    <activity
-        android:name=".MainActivity"
-        android:label="@string/app_name">
-
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
-    <activity android:name=".LoginActivity"/>
-    <activity android:name=".MenuActivity"/>
-    <activity android:name=".MedicineListViewActivity"/>
-    <activity android:name=".MedicineItemViewActivity"/>
-    <activity android:name=".ReviewActivity"/>
-    <activity android:name=".MapMainActivity"/>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".MenuActivity"/>
+        <activity android:name=".MedicineListViewActivity"/>
+        <activity android:name=".MedicineItemViewActivity"/>
+        <activity android:name=".ReviewActivity"/>
+        <activity android:name=".MapMainActivity"/>
     </application>
 </manifest>

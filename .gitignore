@@ -8,6 +8,10 @@
 
 *.bin
 *.lock
+<<<<<<< HEAD
+
+=======
+>>>>>>> junyoung
 # Built application files
 *.apk
 *.ap_
