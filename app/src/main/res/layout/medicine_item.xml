@@ -28,12 +28,15 @@
             android:layout_height="wrap_content"
             android:paddingLeft="5dp"
             android:text="이름"
-            android:textColor="@android:color/holo_blue_dark"
+            android:textColor="@android:color/white"
             android:textSize="30sp" />
 
         <RatingBar
             android:id="@+id/ratingBar"
             style="?android:attr/ratingBarStyle"
+            android:progressTint="@android:color/holo_orange_light"
+            android:secondaryProgressTint="@android:color/holo_orange_light"
+            android:progressBackgroundTint="@android:color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:isIndicator="true"

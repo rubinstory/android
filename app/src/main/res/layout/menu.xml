@@ -22,6 +22,7 @@
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +41,6 @@
             android:layout_height="match_parent"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:drawableTop="@drawable/headxml"
             android:paddingTop="6dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -52,12 +52,11 @@
             android:textColor="@color/white"
             android:textStyle="bold"
             android:id="@+id/headache"
-            android:background="@drawable/buttombackground"/>
+            android:background="@drawable/buttonbackground"/>
         <Button
             android:layout_height="match_parent"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:drawableTop="@drawable/stomachxml"
             android:paddingTop="6dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -69,7 +68,7 @@
             android:textColor="@color/white"
             android:textStyle="bold"
             android:id="@+id/stomachache"
-            android:background="@drawable/buttombackground"/>
+            android:background="@drawable/buttonbackground"/>
     </LinearLayout>
 
     <LinearLayout
@@ -85,7 +84,6 @@
             android:layout_height="match_parent"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:drawableTop="@drawable/abrasionxml"
             android:paddingTop="6dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -97,13 +95,12 @@
             android:textColor="@color/white"
             android:textStyle="bold"
             android:id="@+id/abrasion"
-            android:background="@drawable/buttombackground"/>
+            android:background="@drawable/buttonbackground"/>
 
         <Button
             android:layout_height="match_parent"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:drawableTop="@drawable/skinxml"
             android:paddingTop="6dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -115,7 +112,7 @@
             android:textColor="@color/white"
             android:textStyle="bold"
             android:id="@+id/dermatitis"
-            android:background="@drawable/buttombackground"/>
+            android:background="@drawable/buttonbackground"/>
     </LinearLayout>
 
 
