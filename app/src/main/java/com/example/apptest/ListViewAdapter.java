@@ -42,13 +42,11 @@ public class ListViewAdapter extends BaseAdapter { // 댓글을 리스트뷰로 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
         ListViewItem listViewItem = listViewItemList.get(position);
 
-        //image.setImageDrawable(listViewItem.getIcon());
         Glide.with(image).load(listViewItem.getIcon()).into(image);
         stars.setNumStars(5);
         stars.setRating(listViewItem.getNumStar());
         text.setText(listViewItem.getText());
         name.setText(listViewItem.getName());
-
         return convertView;
     }
 
@@ -56,12 +54,9 @@ public class ListViewAdapter extends BaseAdapter { // 댓글을 리스트뷰로 
     public long getItemId(int position) {
         return position;
     }
-
     @Override
     public Object getItem(int position) {
         return listViewItemList.get(position);
     }
-
-
     public void addItem(ListViewItem item) { listViewItemList.add(item); }
 }

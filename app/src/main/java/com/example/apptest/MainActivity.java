@@ -12,9 +12,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{ // 메인 액티비티 클래스
-
     private final String TAG = getClass().getSimpleName();
-
     private Button medicineButton;
     private Button loginButton;
     private Button pharmacyButton;
@@ -23,9 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         MyAPICall.initMyAPI(); // API 통신을 위한 initial 함수 호출
-
         medicineButton = findViewById(R.id.button1);
         medicineButton.setOnClickListener(this);
         loginButton = findViewById(R.id.button2);
@@ -54,7 +50,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
             }
         });
-
     }
 
     @Override

@@ -7,8 +7,12 @@ public class UserItem { // 사용자 정보를 저장하기 위한 클래스
     private int id; // 사용자의 id 값을 저장하기 위한 변수
 
     public UserItem() {}
-    public UserItem(String name, String password, int id) { this.name = name; this.password = password; this.id = id;}
-    public UserItem(String name, String password, String image, int id) { this.name = name; this.password = password; this.image = image; this.id = id;}
+    public UserItem(String name, String password, int id) {
+        this.name = name; this.password = password; this.id = id;
+    }
+    public UserItem(String name, String password, String image, int id) {
+        this.name = name; this.password = password; this.image = image; this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -28,3 +32,4 @@ public class UserItem { // 사용자 정보를 저장하기 위한 클래스
     public void setId(int id) { this.id = id; }
     public void setImage(String image){ this.image = image; }
 }
+

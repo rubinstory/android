@@ -1,11 +1,5 @@
 from rest_framework import serializers
-from .models import Post, User, Medicine, Comment
-
-class PostSerializer(serializers.ModelSerializer):
-	class Meta:
-		model = Post
-		fields = ('title', 'text')
-
+from .models import User, Medicine, Comment
 
 class CommentSerializer(serializers.ModelSerializer):
 	class Meta:

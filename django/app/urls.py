@@ -21,7 +21,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 router = routers.DefaultRouter()
-router.register(r'posts', views.PostViewset)
 router.register(r'users', views.UserViewset)
 router.register(r'medicines', views.MedicineViewset)
 router.register(r'comments', views.CommentViewset)
