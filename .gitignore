@@ -4,10 +4,6 @@
 
 ### AndroidStudio ###
 # Covers files to be ignored for android development using Android Studio.
-
-
-*.bin
-*.lock
 <<<<<<< HEAD
 
 =======
@@ -44,6 +40,8 @@ proguard/
 
 # Log Files
 *.log
+*.bin
+*.lock
 
 # Android Studio
 /*/build/
