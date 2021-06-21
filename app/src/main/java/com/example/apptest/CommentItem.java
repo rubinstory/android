@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
-public class CommentItem {
+public class CommentItem { // 댓글 정보를 저장하는 클래스
     private int user; // 댓글을 작성한 사용자의 id 값을 저장하는 변수
     private int medicine; // 댓글이 달린 약품의 id 값을 저장하는 변수
     private String text; // 댓글의 내용을 저장하는 변수

@@ -7,10 +7,10 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ListViewItem {
-    private String icon;
-    private String text;
-    private float numStar;
-    private String name;
+    private String icon; // 사용자 이미지 주소를 저장하는 변수
+    private String text; // 사용자가 작성한 댓글의 내용을 저장하는 변수
+    private float numStar; // 사용자가 작성한 평점을 저장하는 변수
+    private String name; // 사용자의 이름을 저장하는 변수
 
     public ListViewItem() {}
     public ListViewItem(String text, float numStar, String name) {

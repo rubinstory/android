@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
 
-public class MedicineItemView extends LinearLayout {
+public class MedicineItemView extends LinearLayout { // 약품 뷰 설정을 위한 클래스
     TextView nameView;
     ImageView imageView;
     RatingBar ratingBar;

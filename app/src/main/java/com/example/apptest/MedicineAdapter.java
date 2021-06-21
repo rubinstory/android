@@ -10,8 +10,8 @@ import com.example.apptest.MedicineItemView;
 
 import java.util.ArrayList;
 
-class MedicineAdapter extends BaseAdapter {
-    ArrayList<MedicineItem> itemList = new ArrayList<MedicineItem>();
+class MedicineAdapter extends BaseAdapter { // 약품 리스트뷰 출력을 위한 클래스
+    ArrayList<MedicineItem> itemList = new ArrayList<MedicineItem>(); // 약품 정보를 리스트로 저장하는 변수
     Context context;
     public MedicineAdapter(Context context) { this.context = context; }
 
