@@ -26,8 +26,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MedicineItemViewActivity extends AppCompatActivity {
     private final  String TAG = getClass().getSimpleName();
-    private final String BASE_URL = "http://192.168.35.223:8000";
-    private MyAPI mMyAPI;
 
     private int id;
     private ListViewAdapter listViewAdapter;
@@ -54,9 +52,8 @@ public class MedicineItemViewActivity extends AppCompatActivity {
         nameView = (TextView)findViewById(R.id.nameView);
         explanationView = (TextView)findViewById(R.id.explanationView);
         imageView = (ImageView)findViewById(R.id.imageView);
-        initMyAPI(BASE_URL);
 
-        Call<MedicineItem> getCall = mMyAPI.get_medicines_by_id(id);
+        Call<MedicineItem> getCall = MyAPICall.mMyAPI.get_medicines_by_id(id);
         getCall.enqueue(new Callback<MedicineItem>() {
             @Override
             public void onResponse(Call<MedicineItem> call, Response<MedicineItem> response) {
@@ -72,7 +69,7 @@ public class MedicineItemViewActivity extends AppCompatActivity {
                         listViewItem.setText(c.getText());
                         listViewItem.setNumStar(c.getRate());
 
-                        Call<UserItem> getUserCall = mMyAPI.get_user_by_id(c.getUserId());
+                        Call<UserItem> getUserCall = MyAPICall.mMyAPI.get_user_by_id(c.getUserId());
                         getUserCall.enqueue(new Callback<UserItem>() {
                             @Override
                             public void onResponse(Call<UserItem> call, Response<UserItem> response) {
@@ -127,15 +124,5 @@ public class MedicineItemViewActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });//약국 버튼 눌렀을때
-    }
-
-    private void initMyAPI(String baseUrl){
-        Log.d(TAG,"initMyAPI : " + baseUrl);
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        mMyAPI = retrofit.create(MyAPI.class);
     }
 }

@@ -26,17 +26,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ReviewActivity extends AppCompatActivity {
     private final  String TAG = getClass().getSimpleName();
 
-    private final String BASE_URL = "http://192.168.35.223:8000";
-    private MyAPI mMyAPI;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.write_review);
-        initMyAPI(BASE_URL);
-
         RatingBar ratingBar = (RatingBar)findViewById(R.id.ratingBar);
-
         EditText text = (EditText)findViewById(R.id.contents);
         Button save = (Button)findViewById(R.id.saveButton);
 
@@ -53,7 +47,7 @@ public class ReviewActivity extends AppCompatActivity {
                                                       text.getText().toString(),
                                                       ratingBar.getRating());
 
-                Call<CommentItem> commentCall = mMyAPI.post_comments(comment);
+                Call<CommentItem> commentCall = MyAPICall.mMyAPI.post_comments(comment);
                 commentCall.enqueue(new Callback<CommentItem>() {
                     @Override
                     public void onResponse(Call<CommentItem> call, Response<CommentItem> response) {
@@ -79,19 +73,7 @@ public class ReviewActivity extends AppCompatActivity {
                         Log.d(TAG, "Fail msg : " + t.getMessage());
                     }
                 });
-
-                //float t = ratingBar.getRating();
             }
         });
-    }
-    private void initMyAPI(String baseUrl){
-
-        Log.d(TAG,"initMyAPI : " + baseUrl);
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        mMyAPI = retrofit.create(MyAPI.class);
     }
 }

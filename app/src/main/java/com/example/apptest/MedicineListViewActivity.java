@@ -22,8 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MedicineListViewActivity extends AppCompatActivity {
     private final  String TAG = getClass().getSimpleName();
-    private final String BASE_URL = "http://192.168.35.223:8000";
-    private MyAPI mMyAPI;
+
     private String category;
     GridView gridView;
     private MedicineAdapter adapter;
@@ -38,11 +37,10 @@ public class MedicineListViewActivity extends AppCompatActivity {
         super.onResume();
         setContentView(R.layout.medicine_list);
         category = getIntent().getStringExtra("category");
-        initMyAPI(BASE_URL);
         gridView = (GridView) findViewById(R.id.gridView);
         adapter = new MedicineAdapter(this);
         ArrayList<MedicineItem> list = new ArrayList<MedicineItem>();
-        Call<List<MedicineItem>> getCall = mMyAPI.get_medicines_by_category(category);
+        Call<List<MedicineItem>> getCall = MyAPICall.mMyAPI.get_medicines_by_category(category);
 
         getCall.enqueue(new Callback<List<MedicineItem>>() {
             @Override
@@ -78,16 +76,5 @@ public class MedicineListViewActivity extends AppCompatActivity {
                 //Toast.makeText(getApplicationContext(), "클릭: " + item.getName(), Toast.LENGTH_LONG).show();
             }
         });
-    }
-
-    private void initMyAPI(String baseUrl){
-
-        Log.d(TAG,"initMyAPI : " + baseUrl);
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        mMyAPI = retrofit.create(MyAPI.class);
     }
 }

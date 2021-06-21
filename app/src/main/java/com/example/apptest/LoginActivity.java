@@ -24,11 +24,7 @@ public class LoginActivity extends AppCompatActivity{
     static boolean is_login = false;
     static UserItem user;
 
-    private final  String TAG = getClass().getSimpleName();
-
-    private final String BASE_URL = "http://192.168.35.223:8000";
-    private MyAPI mMyAPI;
-
+    private final String TAG = getClass().getSimpleName();
     private Button registerButton;
     private Button loginButton;
     private Button logoutButton;
@@ -41,7 +37,7 @@ public class LoginActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-        initMyAPI(BASE_URL);
+        MyAPICall.initMyAPI();
         getUserList();
 
         registerButton = findViewById(R.id.register_button);
@@ -82,7 +78,7 @@ public class LoginActivity extends AppCompatActivity{
                     }
                 }
 
-                Call<UserItem> userCall = mMyAPI.post_users(item);
+                Call<UserItem> userCall = MyAPICall.mMyAPI.post_users(item);
                 userCall.enqueue(new Callback<UserItem>() {
                     @Override
                     public void onResponse(Call<UserItem> call, Response<UserItem> response) {
@@ -126,7 +122,7 @@ public class LoginActivity extends AppCompatActivity{
                     return ;
                 }
 
-                Call<List<UserItem>> userCall = mMyAPI.get_users();
+                Call<List<UserItem>> userCall = MyAPICall.mMyAPI.get_users();
                 userCall.enqueue(new Callback<List<UserItem>> () {
                     @Override
                     public void onResponse(Call<List<UserItem>>  call, Response<List<UserItem>>  response) {
@@ -182,19 +178,8 @@ public class LoginActivity extends AppCompatActivity{
         });
     }
 
-    private void initMyAPI(String baseUrl){
-
-        Log.d(TAG,"initMyAPI : " + baseUrl);
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        mMyAPI = retrofit.create(MyAPI.class);
-    }
-
     private void getUserList() {
-        Call<List<UserItem>> userListCall = mMyAPI.get_users();
+        Call<List<UserItem>> userListCall = MyAPICall.mMyAPI.get_users();
         userListCall.enqueue(new Callback<List<UserItem>>() {
             @Override
             public void onResponse(Call<List<UserItem>> call, Response<List<UserItem>> response) {
