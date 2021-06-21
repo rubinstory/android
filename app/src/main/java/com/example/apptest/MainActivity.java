@@ -15,12 +15,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private final  String TAG = getClass().getSimpleName();
 
-    // server의 url을 적어준다
-    private final String BASE_URL = "http://192.168.35.223:8000";
-    private MyAPI mMyAPI;
-    //private ImageButton mGetButton;
-    //private ImageButton mPostButton;
-    //private ImageButton mPatchButton;
     private Button mGetButton;
     private Button mPostButton;
     private Button mPatchButton;
@@ -30,13 +24,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        MyAPICall.initMyAPI();
+
         mGetButton = findViewById(R.id.button1);
         mGetButton.setOnClickListener(this);
         mPostButton = findViewById(R.id.button2);
         mPostButton.setOnClickListener(this);
         mPatchButton = findViewById(R.id.button3);
         mPatchButton.setOnClickListener(this);
-        initMyAPI(BASE_URL);
 
         mPostButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,17 +57,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    private void initMyAPI(String baseUrl) {
-        Log.d(TAG, "initMyAPI : " + baseUrl);
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        mMyAPI = retrofit.create(MyAPI.class);
-    }
-
     @Override
-    public void onClick(View view) {
-
-    }
+    public void onClick(View view) {}
 }

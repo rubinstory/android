@@ -24,7 +24,7 @@
         android:adjustViewBounds="true"
         android:maxHeight="100dp"
         android:minHeight="100dp"
-        android:src="@drawable/test" />
+        android:background="@drawable/textview_border"/>
 
     <TextView
         android:id="@+id/explanationView"
