@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-public class ListViewAdapter extends BaseAdapter {
+public class ListViewAdapter extends BaseAdapter { // 댓글을 리스트뷰로 출력하기 위한 Adapter 클래스
     private ArrayList<ListViewItem> listViewItemList = new ArrayList<ListViewItem>();
 
     public ListViewAdapter(){}
