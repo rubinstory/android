@@ -7,7 +7,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ListViewItem {
-    private Drawable icon;
+    private String icon;
     private String text;
     private float numStar;
     private String name;
@@ -16,7 +16,7 @@ public class ListViewItem {
     public ListViewItem(String text, float numStar, String name) {
         this.text = text; this.numStar = numStar; this.name = name;
     }
-    public void setIcon(Drawable icon)
+    public void setIcon(String icon)
     {
         this.icon = icon;
     }
@@ -29,7 +29,7 @@ public class ListViewItem {
         this.text = text;
     }
     public void setName(String name) { this.name = name; }
-    public Drawable getIcon() { return this.icon ; }
+    public String getIcon() { return this.icon ; }
     public float getNumStar() {
         return this.numStar ;
     }

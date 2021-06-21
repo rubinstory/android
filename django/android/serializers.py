@@ -16,7 +16,7 @@ class CommentSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = User
-		fields = ('name', 'password', 'id')
+		fields = ('name', 'password', 'image', 'id')
 
 class MedicineSerializer(serializers.ModelSerializer):
 	comments = CommentSerializer(many=True, read_only=True)

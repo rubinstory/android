@@ -6,7 +6,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MyAPICall {
     static MyAPI mMyAPI;
     private static String BASE_URL = "http://192.168.35.223:8000";
-    //private final String TAG = getClass().getSimpleName();
 
     static void initMyAPI() {
         Retrofit retrofit = new Retrofit.Builder()

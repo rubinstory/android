@@ -56,8 +56,6 @@ public class ReviewActivity extends AppCompatActivity {
                             myToast.show();
                             Intent intent = new Intent(ReviewActivity.this, MedicineItemViewActivity.class);
                             intent.putExtra("id", MedicineItemViewActivity.medicine.getId());
-                            //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
                             return ;

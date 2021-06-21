@@ -36,7 +36,6 @@ public class MedicineItem {
     public void setId(int id){ this.id = id; }
     public void setName(String name){ this.name = name; }
     public void setExplanation(String explanation){ this.explanation = explanation; }
-    //public void setCategory(ArrayList<Integer> category){ this.category = category; }
     public void setName(float rate){ this.rate = rate; }
     public void setImage(String image){ this.image = image; }
 }
