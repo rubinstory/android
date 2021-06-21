@@ -34,7 +34,22 @@
         android:text="설명"
         android:textColor="@android:color/black"
         android:textSize="12sp" />
-
+    <Button
+        android:id="@+id/pharmacy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:layout_gravity="right"
+        android:text="약국 검색"
+        android:textSize="20dp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:drawableTop="@drawable/pharmacyxml"
+        android:background=""
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        app:backgroundTint="@color/colorPrimaryDark"/>
     <LinearLayout
         android:id="@+id/buttonLayout"
         android:layout_width="match_parent"
@@ -57,18 +72,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_weight="1" />
-        <Button
-            android:id="@+id/pharmacy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/imageView"
-            android:backgroundTint="@color/colorPrimaryDark"
-            android:layout_gravity="right"
-            android:text="약국 검색"
-            android:textSize="20dp"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            app:backgroundTint="@color/colorPrimaryDark"/>
+
     </LinearLayout>
 
     <ScrollView
