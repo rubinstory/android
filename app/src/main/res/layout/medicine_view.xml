@@ -5,14 +5,19 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/tools"
     android:orientation="vertical"
-    app:ignore="NamespaceTypo">
+    app:ignore="NamespaceTypo"
+    >
     <TextView
         android:id="@+id/nameView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="이름"
         android:textSize="30sp"
-        android:textColor="@android:color/holo_blue_dark"/>
+        android:textColor="@android:color/holo_blue_dark"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        />
 
     <ImageView
         android:id="@+id/imageView"
@@ -23,7 +28,9 @@
         android:adjustViewBounds="true"
         android:maxHeight="100dp"
         android:minHeight="100dp"
-        android:src="@drawable/test" />
+        android:src="@drawable/test"
+        android:background="@drawable/textview_border"
+        android:layout_marginVertical="50dp"/>
 
     <TextView
         android:id="@+id/explanationView"
@@ -41,16 +48,20 @@
         android:layout_below="@+id/imageView"
         android:layout_marginTop="77dp"
         android:text="리뷰작성"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:background="@drawable/buttonbackground"/>
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
-        android:layout_marginTop="77dp"
-        android:layout_marginLeft="310dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:background="@color/white"
+        android:drawableTop="@drawable/pharmacyxml"
         android:text="약국찾기"
+        android:textColor="@color/black"
         android:textSize="20dp" />
 
     <ScrollView
