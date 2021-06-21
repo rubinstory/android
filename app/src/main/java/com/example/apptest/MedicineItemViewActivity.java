@@ -76,6 +76,7 @@ public class MedicineItemViewActivity extends AppCompatActivity {
                                 if(response.isSuccessful()) {
                                     UserItem userItem = response.body();
                                     listViewItem.setName(userItem.getName());
+                                    listViewItem.setIcon(userItem.getImage());
                                 }
                             }
                             @Override

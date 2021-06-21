@@ -10,14 +10,14 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class ListViewAdapter extends BaseAdapter {
     private ArrayList<ListViewItem> listViewItemList = new ArrayList<ListViewItem>();
 
-    public ListViewAdapter(){
-
-    }
+    public ListViewAdapter(){}
 
     @Override
     public int getCount() {
@@ -42,7 +42,8 @@ public class ListViewAdapter extends BaseAdapter {
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
         ListViewItem listViewItem = listViewItemList.get(position);
 
-        image.setImageDrawable(listViewItem.getIcon());
+        //image.setImageDrawable(listViewItem.getIcon());
+        Glide.with(image).load(listViewItem.getIcon()).into(image);
         stars.setNumStars(5);
         stars.setRating(listViewItem.getNumStar());
         text.setText(listViewItem.getText());

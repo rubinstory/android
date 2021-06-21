@@ -33,7 +33,7 @@
         android:layout_below="@id/imageView"
         android:text="설명"
         android:textColor="@android:color/black"
-        android:textSize="12sp" />
+        android:textSize="20sp" />
 
     <LinearLayout
         android:id="@+id/buttonLayout"
