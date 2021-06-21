@@ -5,14 +5,15 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/tools"
     android:orientation="vertical"
-    app:ignore="NamespaceTypo">
+    app:ignore="NamespaceTypo"
+    android:background="@drawable/background">
     <TextView
         android:id="@+id/nameView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="이름"
         android:textSize="30sp"
-        android:textColor="@android:color/holo_blue_dark"/>
+        android:textColor="@android:color/black"/>
 
     <ImageView
         android:id="@+id/imageView"
@@ -31,32 +32,49 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/imageView"
         android:text="설명"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="10sp" />
+        android:textColor="@android:color/black"
+        android:textSize="12sp" />
 
-    <Button
-        android:id="@+id/review"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
-        android:layout_marginTop="77dp"
-        android:text="리뷰작성"
-        android:textSize="20dp" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
-        android:layout_marginTop="77dp"
-        android:layout_marginLeft="310dp"
-        android:text="약국찾기"
-        android:textSize="20dp" />
+        android:layout_below="@id/explanationView"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:layout_gravity="left"
+            android:text="리뷰작성"
+            android:textSize="20dp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:backgroundTint="@color/colorPrimaryDark"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+        <Button
+            android:id="@+id/pharmacy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:layout_gravity="right"
+            android:text="약국 검색"
+            android:textSize="20dp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:backgroundTint="@color/colorPrimaryDark"/>
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/review"
+        android:layout_below="@+id/buttonLayout"
         android:fillViewport="true">
 
         <ListView

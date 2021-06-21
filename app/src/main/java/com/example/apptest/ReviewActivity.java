@@ -14,9 +14,6 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.taufiqrahman.reviewratings.BarLabels;
-import com.taufiqrahman.reviewratings.RatingReviews;
-
 import java.util.ArrayList;
 import java.util.Random;
 
