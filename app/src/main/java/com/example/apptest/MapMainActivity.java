@@ -18,7 +18,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -56,13 +55,8 @@ import noman.googleplaces.PlacesException;
 import noman.googleplaces.PlacesListener;
 
 public class MapMainActivity extends AppCompatActivity implements OnMapReadyCallback, ActivityCompat.OnRequestPermissionsResultCallback, PlacesListener {
-    //PharmParser parser = new PharmParser();
-    String data;
     private GoogleMap mMap;
     private Marker currentMarker = null;
-    Button handle_btn;
-    EditText edit;
-    String getedit; //약국 동이름으로 검색하는 edittext
 
     SupportMapFragment mapFragment;
 
@@ -90,14 +84,6 @@ public class MapMainActivity extends AppCompatActivity implements OnMapReadyCall
     private View mLayout;  // Snackbar 사용하기 위해서 View가 필요
     List<Marker> previous_marker = null; //google place에서 얻어온 약국 마커 표시
 
-    /*
-    @Override
-    public void onBackPressed() {
-        // 버튼을 누르면 메인화면으로 이동
-        myStartActivity();
-        super.onBackPressed();
-    }*/
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,14 +91,20 @@ public class MapMainActivity extends AppCompatActivity implements OnMapReadyCall
                 WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.map);
 
-        previous_marker = new ArrayList<Marker>();
-
+        previous_marker = new ArrayList<>();
         //약국 찾기 버튼 눌렀을때(마커 생성)
-        Button button = (Button)findViewById(R.id.pharm_btn);
+        Button button = findViewById(R.id.pharm_btn);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showPlaceInformaiton(currentPosition);
+                if(currentPosition == null){
+                    setDefaultLocation();
+                    Toast.makeText(getApplicationContext(),
+                            "위치설정 후 약국 검색", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    showPlaceInformaiton(currentPosition);
+                }
             }
         });
 
@@ -128,11 +120,7 @@ public class MapMainActivity extends AppCompatActivity implements OnMapReadyCall
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        //mapFragment = new SupportMapFragment();
-        //getSupportFragmentManager().beginTransaction().replace(R.id.map, mapFragment).commit();
     }
-
-
 
     //맵이 실행됐을때 처리 과정
     @Override
@@ -291,8 +279,8 @@ public class MapMainActivity extends AppCompatActivity implements OnMapReadyCall
         }
 
         if (addresses == null || addresses.size() == 0) {
-            Toast.makeText(this, "주소 미발견", Toast.LENGTH_LONG).show();
-            return "주소 미발견";
+            Toast.makeText(this, "주소 찾는중", Toast.LENGTH_LONG).show();
+            return "주소 찾는중";
 
         } else {
             Address address = addresses.get(0);
@@ -321,11 +309,6 @@ public class MapMainActivity extends AppCompatActivity implements OnMapReadyCall
         markerOptions.draggable(true);
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
         currentMarker = mMap.addMarker(markerOptions);
-
-        //현재 위치를 중심으로 카메라 이동
-        //CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLng(currentLatLng);
-        //mMap.moveCamera(cameraUpdate);
-
     }
 
     //지도 실행됐을때 1초정도 보이는 기본 위치
@@ -360,8 +343,6 @@ public class MapMainActivity extends AppCompatActivity implements OnMapReadyCall
                 Manifest.permission.ACCESS_FINE_LOCATION);
         int hasCoarseLocationPermission = ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_COARSE_LOCATION);
-
-
 
         if (hasFineLocationPermission == PackageManager.PERMISSION_GRANTED &&
                 hasCoarseLocationPermission == PackageManager.PERMISSION_GRANTED   ) {
@@ -540,7 +521,7 @@ public class MapMainActivity extends AppCompatActivity implements OnMapReadyCall
         new NRPlaces.Builder()
                 .listener(MapMainActivity.this)
                 .key("AIzaSyBOGHjlT4n_N7hA8EK3OjD5mLD4hp0-6Cs") // Google API
-                .latlng(location.latitude, location.longitude)// 여기 변경
+                .latlng(location.latitude, location.longitude)
                 .radius(2500)// 반경
                 .type(PlaceType.PHARMACY) //약국
                 .build()
