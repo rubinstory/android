@@ -1,17 +1,9 @@
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework import status, viewsets
-from .serializers import PostSerializer, UserSerializer, MedicineSerializer, CommentSerializer
-from .models import Post, User, Medicine, Comment
+from .serializers import UserSerializer, MedicineSerializer, CommentSerializer
+from .models import User, Medicine, Comment
 from django.db.models import Count
-
-class PostViewset(viewsets.ModelViewSet):
-	queryset = Post.objects.all()
-	serializer_class = PostSerializer
-
-	def get_paginated_response(self, data):
-		return Response(data)
-
 
 class UserViewset(viewsets.ModelViewSet):
 	queryset = User.objects.all()
